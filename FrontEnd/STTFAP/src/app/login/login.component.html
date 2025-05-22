@@ -8,12 +8,14 @@
         <form class="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
           <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" [(ngModel)] required />
+            <input type="email" id="email" name="email" [(ngModel)]="email" required />
+
           </div>
       
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" [(ngModel)] required />
+            <input type="password" id="senha" name="senha" [(ngModel)]="senha" required />
+
           </div>
       
           <button type="submit">Entrar</button>
