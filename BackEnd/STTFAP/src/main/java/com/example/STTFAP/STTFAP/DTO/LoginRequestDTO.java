@@ -1,4 +1,4 @@
-package com.example.DTO;
+package com.example.STTFAP.STTFAP.DTO;
 
 public class LoginRequestDTO {
     private String email;
