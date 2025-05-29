@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router'; // IMPORTANTE
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   email: string = '';
   senha: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {} 
 
   onSubmit() {
     const dadosLogin = {
@@ -26,6 +27,8 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           console.log('Login realizado com sucesso!', res);
+
+          this.router.navigate(['/menu']);
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
