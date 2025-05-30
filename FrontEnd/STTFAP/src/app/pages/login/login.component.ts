@@ -28,7 +28,7 @@ export class LoginComponent {
         next: (res) => {
           console.log('Login realizado com sucesso!', res);
           
-          this.router.navigate(['/menu']);
+          this.router.navigate(['/pages/menu']);
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
