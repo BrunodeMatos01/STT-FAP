@@ -23,11 +23,11 @@ export class LoginComponent {
       senha: this.senha
     };
 
-    this.http.post('http://localhost:3000/api/login', dadosLogin)
+    this.http.post('http://localhost:8080/api/login', dadosLogin)
       .subscribe({
         next: (res) => {
           console.log('Login realizado com sucesso!', res);
-
+          
           this.router.navigate(['/menu']);
         },
         error: (err) => {
