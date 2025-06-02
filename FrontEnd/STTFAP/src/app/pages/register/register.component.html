@@ -1,0 +1,28 @@
+<div class="container-geral">
+  <div class="caixa-login">
+    <div class="lado-esquerdo">
+      <h3>SEGURANÇA DO TRABALHO</h3>
+      <h3>SESI SENAI</h3>
+    </div>
+    <div class="lado-direito">
+      <h2>Registrar-se</h2>
+      <form (ngSubmit)="onRegister()">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" [(ngModel)]="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" [(ngModel)]="senha" name="senha" required />
+
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />
+
+        <a [routerLink]="['/login']">Já tem uma conta? Entrar</a>
+
+        <button type="submit" class="entrar">Registrar</button>
+      </form>
+    </div>
+  </div>
+</div>

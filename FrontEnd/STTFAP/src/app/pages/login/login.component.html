@@ -13,11 +13,11 @@
         <label for="senha">Senha:</label>
         <input type="password" id="senha" [(ngModel)]="senha" name="senha" required />
 
-        <a href="#">Esqueceu a senha?</a>
+        <a [routerLink]="['/pages/register']">Registrar-se</a>
+
 
         <button type="submit" class="entrar">Entrar</button>
       </form>
     </div>
   </div>
 </div>
-
