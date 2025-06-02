@@ -21,10 +21,22 @@ public class LoginController {
         return usuarioRepository.findByEmail(loginRequestDTO.getEmail())
                 .map(usuario -> {
                     if (usuario.getSenha().equals(loginRequestDTO.getSenha())) {
-                        return ResponseEntity.ok(Map.of("message", "Login realizado com sucesso!"));
+                        return ResponseEntity.ok(Map.of("message", "Login realizado com sucesso!", "tipoUsu", usuario.getTipoUsu()));
                     } else {
                         return ResponseEntity.status(401).body("Senha incorreta.");
                     }
+                })
+                .orElse(ResponseEntity.status(404).body("Usuário não encontrado."));
+    }
+
+    @GetMapping("/admin-area")
+    public ResponseEntity<?> adminArea(@RequestParam String email) {
+        return usuarioRepository.findByEmail(email)
+                .map(usuario -> {
+                    if (!usuario.getTipoUsu().equalsIgnoreCase("admin")) {
+                        return ResponseEntity.status(403).body("Acesso negado: apenas administradores.");
+                    }
+                    return ResponseEntity.ok("Bem-vindo à área administrativa!");
                 })
                 .orElse(ResponseEntity.status(404).body("Usuário não encontrado."));
     }

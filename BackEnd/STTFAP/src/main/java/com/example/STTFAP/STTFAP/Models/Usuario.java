@@ -21,4 +21,6 @@ public class Usuario {
 
     @Column(nullable = false)
     private String senha;
+
+    private String tipoUsu;
 }
