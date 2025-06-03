@@ -5,7 +5,7 @@
       <h3>SESI SENAI</h3>
     </div>
     <div class="lado-direito">
-      <h2>Registrar-se</h2>
+      <h2 id="registrar">Registrar-se</h2>
       <form (ngSubmit)="onRegister()">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" [(ngModel)]="nome" name="nome" required />
@@ -18,6 +18,12 @@
 
         <label for="confirmarSenha">Confirmar Senha:</label>
         <input type="password" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />
+
+        <label for="tipoUsu">Tipo de Usuario</label>
+        <select name="tipoUsu" id="tipoUsuid">
+        <option value="Admin">Administrador</option>
+        <option value="Tecnico">Técnico</option>
+        </select>
 
         <a [routerLink]="['/login']">Já tem uma conta? Entrar</a>
 

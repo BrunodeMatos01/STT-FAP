@@ -15,7 +15,7 @@
 /* Caixa principal */
 .caixa-login {
   width: 900px;
-  height: 550px;
+  height: 600px;
   display: flex;
   border-radius: 20px;
   overflow: hidden;
@@ -100,4 +100,17 @@
 button.entrar {
   border-radius: 5px;
   font-weight: bold;
+}
+#tipoUsuid {
+  width: 50%;
+  height: 4vh;
+  margin-bottom: 3%;
+  border-radius: 10px;
+}
+
+#registrar {
+  margin-bottom: 0px;
+}
+label {
+  margin: 0px;
 }
