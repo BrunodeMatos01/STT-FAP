@@ -1,6 +1,7 @@
 package com.example.STTFAP.STTFAP.Controllers;
 
 import com.example.STTFAP.STTFAP.DTO.LoginRequestDTO;
+import com.example.STTFAP.STTFAP.Enum.TipoUsuario;
 import com.example.STTFAP.STTFAP.Repositorys.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class LoginController {
     public ResponseEntity<?> adminArea(@RequestParam String email) {
         return usuarioRepository.findByEmail(email)
                 .map(usuario -> {
-                    if (!usuario.getTipoUsu().equalsIgnoreCase("admin")) {
+                    if (usuario.getTipoUsu() != TipoUsuario.ADMIN) {
                         return ResponseEntity.status(403).body("Acesso negado: apenas administradores.");
                     }
                     return ResponseEntity.ok("Bem-vindo à área administrativa!");
