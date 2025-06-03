@@ -1,4 +1,6 @@
 package com.example.STTFAP.STTFAP.Enum;
 
-public class TipoUsuario {
+public enum TipoUsuario {
+    ADMIN,
+    TECNICO
 }

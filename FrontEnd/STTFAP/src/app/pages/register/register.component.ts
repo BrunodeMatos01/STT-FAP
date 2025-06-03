@@ -14,16 +14,11 @@ export class RegisterComponent {
   nome: string = '';
   email: string = '';
   senha: string = '';
-  confirmarSenha: string = '';
   tipoUsu: string = '';
 
   constructor(private router: Router, private http: HttpClient) {}
 
   onRegister() {
-    if (this.senha !== this.confirmarSenha) {
-      alert('As senhas não coincidem!');
-      return;
-    }
 
     const user = {
       nome: this.nome,
