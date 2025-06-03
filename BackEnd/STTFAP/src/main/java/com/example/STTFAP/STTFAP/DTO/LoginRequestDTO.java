@@ -9,5 +9,4 @@ import lombok.Setter;
 public class LoginRequestDTO {
     private String email;
     private String senha;
-    private String tipoUsu;
 }
