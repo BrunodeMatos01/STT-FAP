@@ -19,10 +19,10 @@
         <label for="confirmarSenha">Confirmar Senha:</label>
         <input type="password" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />
 
-        <label for="tipoUsu">Tipo de Usuario</label>
-        <select name="tipoUsu" id="tipoUsuid">
-        <option value="Admin">Administrador</option>
-        <option value="Tecnico">Técnico</option>
+        <label for="tipoUsu">Tipo de Usuário</label>
+        <select name="tipoUsu" id="tipoUsuid" [(ngModel)]="tipoUsu" required>
+          <option value="Admin">Administrador</option>
+          <option value="Tecnico">Técnico</option>
         </select>
 
         <a [routerLink]="['/login']">Já tem uma conta? Entrar</a>

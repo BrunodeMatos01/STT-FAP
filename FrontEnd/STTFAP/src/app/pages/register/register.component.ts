@@ -1,12 +1,12 @@
-// src/app/pages/register/register.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
-  standalone: true,              // ⚠️ marca como standalone
-  imports: [FormsModule, RouterModule],
+  standalone: true,             
+  imports: [FormsModule, RouterModule, HttpClientModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -15,6 +15,9 @@ export class RegisterComponent {
   email: string = '';
   senha: string = '';
   confirmarSenha: string = '';
+  tipoUsu: string = '';
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   onRegister() {
     if (this.senha !== this.confirmarSenha) {
@@ -22,14 +25,23 @@ export class RegisterComponent {
       return;
     }
 
-    console.log('Usuário registrado:', {
+    const user = {
       nome: this.nome,
       email: this.email,
-      senha: this.senha
-    });
+      senha: this.senha,
+      tipoUsu: this.tipoUsu
+    };
 
-    alert('Registro realizado com sucesso!');
-    // Você pode redirecionar, por exemplo:
-    // this.router.navigate(['/pages/login']);
+    this.http.post('http://localhost:8080/api/register', user). subscribe({
+      next: () => {
+        alert('Registro realizado com sucesso!');
+        this.router.navigate(['/pages/login']);
+      },
+      error: (err) => {
+        console.error('Erro ao cadastrar usuario', err);
+        alert('Erro no registro. Tente novamente.');
+      }
+    })
+    
   }
 }
