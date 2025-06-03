@@ -5,6 +5,7 @@ import com.example.STTFAP.STTFAP.Enum.TipoUsuario;
 import com.example.STTFAP.STTFAP.Repositorys.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -17,12 +18,19 @@ public class LoginController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequestDTO) {
         return usuarioRepository.findByEmail(loginRequestDTO.getEmail())
                 .map(usuario -> {
-                    if (usuario.getSenha().equals(loginRequestDTO.getSenha())) {
-                        return ResponseEntity.ok(Map.of("message", "Login realizado com sucesso!", "tipoUsu", usuario.getTipoUsu()));
+                    // Usa passwordEncoder para comparar senha raw com a senha criptografada
+                    if (passwordEncoder.matches(loginRequestDTO.getSenha(), usuario.getSenha())) {
+                        return ResponseEntity.ok(Map.of(
+                                "message", "Login realizado com sucesso!",
+                                "tipoUsu", usuario.getTipoUsu()
+                        ));
                     } else {
                         return ResponseEntity.status(401).body("Senha incorreta.");
                     }

@@ -5,9 +5,8 @@ import com.example.STTFAP.STTFAP.Models.Usuario;
 import com.example.STTFAP.STTFAP.Repositorys.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/register")
@@ -17,21 +16,22 @@ public class CadastroController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody CadastroRequestDTO cadastroDTO) {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-        if (usuarioRepository.findByEmail(cadastroDTO.getEmail()).isPresent()) {
-            return ResponseEntity.status(400).body(Map.of("erro", "E-mail já está em uso."));
+    @PostMapping
+    public ResponseEntity<?> cadastrar(@RequestBody CadastroRequestDTO dto) {
+        if (usuarioRepository.findByEmail(dto.getEmail()).isPresent()) {
+            return ResponseEntity.badRequest().body("Usuário já existe.");
         }
 
         Usuario novoUsuario = new Usuario();
-        novoUsuario.setNome(cadastroDTO.getNome());
-        novoUsuario.setEmail(cadastroDTO.getEmail());
-        novoUsuario.setSenha(cadastroDTO.getSenha());
-        novoUsuario.setTipoUsu(cadastroDTO.getTipoUsu());
+        novoUsuario.setNome(dto.getNome());
+        novoUsuario.setEmail(dto.getEmail());
+        novoUsuario.setSenha(passwordEncoder.encode(dto.getSenha())); // senha criptografada
+        novoUsuario.setTipoUsu(dto.getTipoUsu());
 
         usuarioRepository.save(novoUsuario);
-
-        return ResponseEntity.ok(Map.of("mensagem", "Usuário cadastrado com sucesso!"));
+        return ResponseEntity.ok("Usuário cadastrado com sucesso!");
     }
 }
