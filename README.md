@@ -1,7 +1,3 @@
-Aqui vão algumas observações e sugestões para enriquecer e estruturar melhor o documento do projeto **SST-FAP**, levando em conta tanto o escopo funcional quanto a coerência de tecnologias e a organização das telas.
-
----
-
 ## 1. Alinhamento do Stack Tecnológico
 
 1. **Consistência entre Frontend e Backend**
