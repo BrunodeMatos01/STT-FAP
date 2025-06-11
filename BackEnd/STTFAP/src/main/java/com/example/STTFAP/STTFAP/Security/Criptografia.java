@@ -1,4 +1,4 @@
-package com.example.STTFAP.STTFAP.Criptografia;
+package com.example.STTFAP.STTFAP.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class SecurityConfig {
+public class Criptografia {
 
     @Bean
     public PasswordEncoder passwordEncoder() {

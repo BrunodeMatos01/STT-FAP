@@ -1,8 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { RegisterComponent } from './app/pages/register/register.component';
+import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { AppComponent } from './app/app.component'; // componente raiz
+import { routes } from './app/app.routes';
 
-bootstrapApplication(RegisterComponent, {
-  providers: [provideHttpClient()]
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient()
+  ]
 });
-  

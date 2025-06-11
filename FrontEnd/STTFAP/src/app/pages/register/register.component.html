@@ -4,27 +4,29 @@
       <h3>SEGURANÇA DO TRABALHO</h3>
       <h3>SESI SENAI</h3>
     </div>
+
     <div class="lado-direito">
       <h2 id="registrar">Registrar-se</h2>
-      <form (ngSubmit)="onRegister()">
+
+      <form (ngSubmit)="onRegister()" #registerForm="ngForm">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" [(ngModel)]="nome" name="nome" required />
+        <input type="text" id="nome" name="nome" [(ngModel)]="nome" required />
 
         <label for="email">E-mail:</label>
-        <input type="email" id="email" [(ngModel)]="email" name="email" required />
+        <input type="email" id="email" name="email" [(ngModel)]="email" required />
 
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" [(ngModel)]="senha" name="senha" required />
+        <input type="password" id="senha" name="senha" [(ngModel)]="senha" required />
 
-        <label for="tipoUsu">Tipo de Usuário</label>
-        <select name="tipoUsu" id="tipoUsuid" [(ngModel)]="tipoUsu" required>
-          <option value="ADMIN">Administrador</option>
-          <option value="TECNICO">Técnico</option>
+        <label for="tipoUsu">Tipo de Usuário:</label>
+        <select id="tipoUsu" name="tipoUsu" [(ngModel)]="tipoUsu" required>
+        <option value="ADMIN">Administrador</option>
+        <option value="TECNICO">Técnico</option>
         </select>
 
-        <a [routerLink]="['/login']">Já tem uma conta? Entrar</a>
+        <a href="#" class="sla" (click)="pagesLogin()" >Já tem uma conta? Entrar</a>
 
-        <button type="submit" class="entrar">Registrar</button>
+        <button type="submit">Cadastrar</button>
       </form>
     </div>
   </div>

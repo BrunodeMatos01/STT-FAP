@@ -1,60 +1,73 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
 .container-geral {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('/assets/imagens-login/gestodeseguranaesade.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;;
+  padding: 20px;
 }
 
 /* Caixa principal */
 .caixa-login {
-  width: 900px;
-  height: 600px;
+  width: 100%;
+  max-width: 900px;
+  background-color: #f2f1ef;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  background-color: #f2f1ef; /* ou branco */
 }
 
+/* Lado esquerdo */
 .lado-esquerdo {
-  width: 50%;
-  background: #6a1b9a; /* cor institucional */
+  flex: 1 1 50%;
+  background: #6a1b9a;
   color: white;
   display: flex;
-  flex-direction: column; /* empilha os elementos */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
-  gap: 10px; /* espaço entre os h3 */
+  padding: 30px 20px;
+  gap: 15px;
 }
 
 .lado-esquerdo h3 {
   font-size: 1.8rem;
   font-weight: 600;
-  margin: 0; /* remove margem padrão */
   font-family: 'Poppins', sans-serif;
 }
 
 /* Lado direito */
 .lado-direito {
-  width: 50%;
-  padding: 40px;
+  flex: 1 1 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 40px 30px;
 }
 
 .lado-direito h2 {
-  margin-bottom: 20px;
   font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .lado-direito form {
@@ -63,54 +76,47 @@
 }
 
 .lado-direito label {
-  margin-top: 10px;
+  margin: 10px 0 5px;
   font-size: 1rem;
+  font-weight: 500;
 }
 
-.lado-direito input {
-  margin-bottom: 15px;
+.lado-direito input,
+.lado-direito select {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  margin-bottom: 15px;
 }
 
 .lado-direito a {
-  color: #888;
+  color: #555;
   font-size: 0.9rem;
   margin-bottom: 20px;
   text-decoration: none;
+  align-self: flex-start;
 }
 
 .lado-direito button {
   background-color: #007bff;
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
   font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .lado-direito button:hover {
   background-color: #0056b3;
 }
 
-button.entrar {
-  border-radius: 5px;
-  font-weight: bold;
-}
 #tipoUsuid {
-  width: 50%;
-  height: 4vh;
-  margin-bottom: 3%;
-  border-radius: 10px;
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
 }
 
-#registrar {
-  margin-bottom: 0px;
-}
-label {
-  margin: 0px;
-}

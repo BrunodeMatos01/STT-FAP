@@ -12,7 +12,18 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/login")
-@CrossOrigin(origins = "*")
+@CrossOrigin(
+        origins = "*",
+        allowedHeaders = "*",
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.PUT,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS,
+                RequestMethod.PATCH
+        }
+)
 public class LoginController {
 
     @Autowired
@@ -25,7 +36,6 @@ public class LoginController {
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequestDTO) {
         return usuarioRepository.findByEmail(loginRequestDTO.getEmail())
                 .map(usuario -> {
-                    // Usa passwordEncoder para comparar senha raw com a senha criptografada
                     if (passwordEncoder.matches(loginRequestDTO.getSenha(), usuario.getSenha())) {
                         return ResponseEntity.ok(Map.of(
                                 "message", "Login realizado com sucesso!",
