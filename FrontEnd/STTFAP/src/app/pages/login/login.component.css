@@ -11,6 +11,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f7;
 }
 
 /* Caixa principal */
@@ -22,6 +24,7 @@ body{
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   background-color: #f2f1ef; /* ou branco */
+  
 }
 
 .lado-esquerdo {
@@ -93,5 +96,12 @@ body{
 }
 button.entrar{
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  background-color:  #d92d63;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
 }
