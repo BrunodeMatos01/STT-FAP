@@ -46,7 +46,7 @@
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background-color: #ffb400;
+  background-color: #007fe6;
   color: #222;
 }
 
@@ -97,12 +97,12 @@
 }
 
 .form-cadastro input:focus {
-  border-color: #ffb400;
+  border-color: #007fe6;
   outline: none;
 }
 
 .form-cadastro button {
-  background-color: #ffb400;
+  background-color: #007fe6;
   border: none;
   padding: 0 2rem;
   font-size: 1rem;
@@ -114,7 +114,7 @@
 }
 
 .form-cadastro button:hover {
-  background-color: #e6a300;
+  background-color: #007fe6;
 }
 
 /* Animação fade-in */
