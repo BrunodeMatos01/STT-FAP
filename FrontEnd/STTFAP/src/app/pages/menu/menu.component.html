@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<div class="app-container">
+  <nav class="sidebar">
+    <h2 class="logo">Seu Projeto</h2>
+    <ul>
+      <li *ngFor="let item of menuItens">
+        <a [routerLink]="item.rota" (click)="closeMenu()">{{ item.titulo }}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section class="landing fade-in" #fadeIn>
+      <h1>Bem-vindo ao Seu Projeto</h1>
+      <p>Facilitando o gerenciamento com soluções intuitivas e eficazes.</p>
+      <form (submit)="onSubmit()" class="form-cadastro">
+        <input type="text" placeholder="Nome" [(ngModel)]="nome" name="nome" required />
+        <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+</div>
