@@ -48,15 +48,5 @@ public class LoginController {
                 .orElse(ResponseEntity.status(404).body("Usuário não encontrado."));
     }
 
-    @GetMapping("/admin-area")
-    public ResponseEntity<?> adminArea(@RequestParam String email) {
-        return usuarioRepository.findByEmail(email)
-                .map(usuario -> {
-                    if (usuario.getTipoUsu() != TipoUsuario.ADMIN) {
-                        return ResponseEntity.status(403).body("Acesso negado: apenas administradores.");
-                    }
-                    return ResponseEntity.ok("Bem-vindo à área administrativa!");
-                })
-                .orElse(ResponseEntity.status(404).body("Usuário não encontrado."));
-    }
+
 }

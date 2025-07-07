@@ -38,7 +38,7 @@ body, html {
 /* Lado esquerdo */
 .lado-esquerdo {
   flex: 1 1 50%;
-  background: #6a1b9a;
+  background: #007bff;
   color: white;
   display: flex;
   flex-direction: column;

@@ -26,7 +26,7 @@ body{
 
 .lado-esquerdo {
   width: 50%;
-  background: #6a1b9a; /* ou a cor institucional */
+  background: #007bff; /* ou a cor institucional */
   color: white;
   display: flex;
   flex-direction: column; /* empilha os elementos */
