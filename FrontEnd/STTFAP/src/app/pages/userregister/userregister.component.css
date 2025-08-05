@@ -1,0 +1,89 @@
+.user-register-container {
+  max-width: 420px; /* Define a largura máxima da div */
+  margin: 60px auto; /* Centraliza horizontalmente */
+  padding: 30px 25px; /* Espaçamento interno */
+  background: #ffffff; /* Cor de fundo */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra */
+  font-family: 'Segoe UI', Tahoma, sans-serif; /* Fonte */
+}
+
+.user-register-container h2 {
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 25px; /* Espaçamento abaixo do título */
+  color: #333; /* Cor do texto */
+  font-weight: 600; /* Peso da fonte */
+}
+
+/* --- ALTERAÇÃO AQUI --- */
+.form-group {
+  position: relative; /* Necessário para o posicionamento do erro */
+  margin-bottom: 30px; /* Aumenta o espaço para acomodar a mensagem de erro */
+}
+
+.form-group label {
+  display: flex; /* Alinha o ícone e o texto */
+  align-items: center; /* Centraliza verticalmente */
+  font-size: 0.95rem; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  color: #555; /* Cor do texto */
+  margin-bottom: 6px; /* Espaçamento abaixo do label */
+}
+
+.form-group .icon {
+  margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+  color: #888; /* Cor do ícone */
+  transition: color 0.2s ease; /* Transição suave */
+}
+
+.form-group input {
+  width: 100%; /* Faz o campo ocupar toda a largura disponível */
+  padding: 12px 14px; /* Espaçamento interno */
+  font-size: 0.95rem; /* Tamanho da fonte */
+  border: 1px solid #ccc; /* Borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transições suaves */
+}
+
+.form-group input:focus {
+  border-color: #0066cc; /* Cor da borda ao focar */
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15); /* Sombra ao focar */
+  outline: none; /* Remove o outline padrão */
+}
+
+/* --- ALTERAÇÃO AQUI --- */
+.error {
+  position: absolute; /* Posiciona o erro em relação ao .form-group */
+  bottom: -20px; /* Posição abaixo do campo de input */
+  left: 0;
+  font-size: 0.8rem; /* Tamanho da fonte */
+  color: #d9534f; /* Cor do texto de erro */
+}
+
+.btn {
+  width: 100%; /* Faz o botão ocupar toda a largura disponível */
+  padding: 14px; /* Espaçamento interno */
+  background: linear-gradient(135deg, #0066cc, #004999); /* Gradiente de fundo */
+  color: #fff; /* Cor do texto */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  border: none; /* Remove bordas */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transições suaves */
+}
+
+.btn[disabled] {
+  background: #aac4e5; /* Cor do botão desabilitado */
+  cursor: not-allowed; /* Cursor de não permitido */
+}
+
+.btn:not([disabled]):hover {
+  transform: translateY(-2px); /* Efeito de elevação */
+  box-shadow: 0 6px 12px rgba(0, 102, 204, 0.23); /* Sombra ao passar o mouse */
+}
+
+.btn i {
+  margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+}

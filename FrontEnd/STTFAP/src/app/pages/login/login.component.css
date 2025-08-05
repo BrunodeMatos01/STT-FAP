@@ -29,7 +29,8 @@ body{
 
 .lado-esquerdo {
   width: 50%;
-  background: #007bff; /* ou a cor institucional */
+  background: #003ea8
+  ; /* ou a cor institucional */
   color: white;
   display: flex;
   flex-direction: column; /* empilha os elementos */
@@ -82,7 +83,7 @@ body{
 }
 
 .lado-direito button {
-  background-color: #007bff;
+  background-color: #003ea8;
   color: white;
   padding: 10px;
   border: none;
@@ -92,7 +93,8 @@ body{
 }
 
 .lado-direito button:hover {
-  background-color: #0056b3;
+  background-color: #003ea8
+  ;
 }
 button.entrar{
   border-radius: 5px;

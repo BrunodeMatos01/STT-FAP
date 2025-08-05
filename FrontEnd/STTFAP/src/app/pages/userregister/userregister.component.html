@@ -1,0 +1,70 @@
+<div class="user-register-container">
+  <h2>Cadastro de Usuário</h2>
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Nome -->
+    <div class="form-group">
+      <label for="name">
+        <i class="fa fa-user icon"></i> Nome
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        minlength="2"
+        [(ngModel)]="name"
+        #nameModel="ngModel"
+        placeholder="Digite seu nome"
+      />
+      <small class="error" *ngIf="nameModel.invalid && nameModel.touched">
+        Nome deve ter ao menos 2 caracteres
+      </small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">
+        <i class="fa fa-envelope icon"></i> Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        email
+        [(ngModel)]="email"
+        #emailModel="ngModel"
+        placeholder="Digite seu email"
+      />
+      <small class="error" *ngIf="emailModel.invalid && emailModel.touched">
+        Digite um email válido
+      </small>
+    </div>
+
+    <!-- Senha -->
+    <div class="form-group">
+      <label for="password">
+        <i class="fa fa-lock icon"></i> Senha
+      </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        minlength="6"
+        [(ngModel)]="password"
+        #passwordModel="ngModel"
+        placeholder="Digite sua senha"
+      />
+      <small class="error" *ngIf="passwordModel.invalid && passwordModel.touched">
+        Senha deve ter ao menos 6 caracteres
+      </small>
+    </div>
+
+    <!-- Botão de Cadastro -->
+    <button type="submit" class="btn" [disabled]="userForm.invalid">
+      <i class="fa fa-user-plus"></i> Cadastrar
+    </button>
+  </form>
+</div>
